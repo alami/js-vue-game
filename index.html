@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="main">
-    <!--<div class="app">
+    <div class="app"  v-show="showMain">
         <div class="app__header">
             <img src="img/logo.png" class="app__logo">
         </div>
@@ -38,9 +38,9 @@
                 <div class="app__btn-text">Звук</div>
             </button>
         </div>
-    </div>-->
+    </div>
 
-    <!--<div class="app achivments">
+    <div class="app achivments"  v-show="showAchivments">
         <div class="app__body">
             <div class="app_body-inner">
                 <h2 class="app_body-title">
@@ -82,9 +82,9 @@
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 
-    <!--<div class="app">
+    <div class="app"  v-show="showQuestions">
         <div class="app__header">
             <div class="app__header-inner">
                 <div class="app__count"># 1</div>
@@ -96,8 +96,9 @@
                 <app__btn-text>Answer</app__btn-text>
             </button>
         </div>
-    </div>-->
-    <!--<div class="app">
+    </div>
+
+    <div class="app" v-show="showSocial">
         <div class="app__body">
             <a target="_blank" href="" class="app__btn">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -122,8 +123,9 @@
             <button class="app__btn btn__back">
                 <i aria-hidden="true" class="fa fa-reply"></i>
             </button>
-        </div>-->
-        <div class="app results" data-race="zerg">
+        </div>
+
+        <div class="app results" data-race="zerg"  v-show="showResult">
             <div class="app__body">
                 <div class="app__results-inner">
                     <div class="results__title">Zerg</div>
@@ -154,5 +156,6 @@
 
 <script src="js/vue.js"></script>
 <script src="js/const.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
