@@ -81,11 +81,43 @@ let app = new Vue({
         nextQuestions (answer) {
             if(this.number == 24) {
                 this.number = 0
-                //this.endGame()
+                this.endGame()
             } else {
                 this.number++
             }
             eval(answer)
+        },
+        endGame () {
+            this.totalGames++
+            localStorage.setItem('sc2TotalGames',this.totalGames)
+            if (this.score.zerg > this.score.protoss && this.score.zerg > this.score.terran
+             && this.score.primal < 8 && Math.abs(this.score.protoss - this.score.zerg)>3) {
+                this.gotoResult('zerg')
+                this.totalGame.zerg++
+            } else if (this.score.primal > this.score.protoss && this.score.primal > this.score.terran
+                && this.score.primal == 8 ) {
+                this.gotoResult('primal') //изначальный
+                this.totalGame.primal++
+            } else if (this.score.protoss > this.score.zerg && this.score.protoss > this.score.terran
+                && this.score.taldarim > 5 && Math.abs(this.score.protoss - this.score.zerg)>3) {
+                this.gotoResult('protoss')
+                this.totalGame.protoss++
+            } else if (this.score.protoss > this.score.zerg && this.score.protoss > this.score.terran
+                && this.score.taldarim == 5 ) {
+                this.gotoResult('taldarim')
+                this.totalGame.taldarim++
+            } else if (this.score.terran > this.score.zerg
+                    && this.score.terran > this.score.protoss) {
+                this.gotoResult('terran')
+                this.totalGame.terran++
+            } else if (Math.abs(this.score.protoss - this.score.zerg) <= 3) {
+                this.gotoResult('hybrid')  // редкий
+                this.totalGame.hybrid++
+            } else {
+                this.gotoResult('infested') //зараженный терран - совсем редкий
+                this.totalGame.infested++
+            }
+            localStorage.setItem('sc2TotalGame',JSON.stringify(this.totalGame))
         }
     }
 });
