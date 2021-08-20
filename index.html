@@ -17,19 +17,15 @@
             <img src="img/logo.png" class="app__logo">
         </div>
         <div class="app__body">
-            <button class="app__btn">
+            <button class="app__btn" @click="gotoQuestions">
                 <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                 <div class="app__btn-text">Начать</div>
             </button>
-            <button class="app__btn">
-                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                <div class="app__btn-text">Начать</div>
-            </button>
-            <button class="app__btn">
+            <button class="app__btn" @click="gotoAchivments">
                 <i class="fa fa-trophy" aria-hidden="true"></i>
                 <div class="app__btn-text">Достижения</div>
             </button>
-            <button class="app__btn">
+            <button class="app__btn" @click="gotoSocial">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <div class="app__btn-text">Автор</div>
             </button>
@@ -120,7 +116,7 @@
                 <i class="fa fa-youtube" aria-hidden="true"></i>
                 <div class="app__btn-text">Youtube</div>
             </a>
-            <button class="app__btn btn__back">
+            <button class="app__btn btn__back" @click="gotoMain">
                 <i aria-hidden="true" class="fa fa-reply"></i>
             </button>
         </div>
