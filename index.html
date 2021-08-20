@@ -46,33 +46,36 @@
                 <div class="app_body-top">
                     <div class="app_card">
                         <div class="app_card-text">Счет</div>
-                        <div class="app_card-count">0</div>
+                        <div class="app_card-count">{{totalScore}}</div>
                     </div>
                     <div class="app_card">
                         <div class="app_card-text">Открыто рас</div>
-                        <div class="app_card-count">0</div>
+                        <div class="app_card-count">{{openRaces}}</div>
                     </div>
                     <div class="app_card">
                         <div class="app_card-text">Всего игр</div>
-                        <div class="app_card-count">0</div>
+                        <div class="app_card-count">{{totalGames}}</div>
                     </div>
                     <div class="app_card">
                         <div class="app_card-text">Любимая раса</div>
-                        <div class="app_card-count">0</div>
+                        <div class="app_card-count">{{favoriteRaces}}</div>
                     </div>
                 </div>
                 <div class="app__body-middle">
-                    <div class="app__result">
+                    <div class="app__result"
+                      v-for="(race, k) in results"
+                      v-show="showResultRace[k]"
+                      @click="gotoResult(k)">
                         <div class="app__result-score">
                             <i aria-hidden="true" class="fa fa-star"></i>
-                            <div class="app_result-count">150</div>
+                            <div class="app_result-count">{{race.points}}</div>
                         </div>
-                        <div class="app__result-name">Зорг</div>
-                        <div class="app__result-amount">5</div>
+                        <div class="app__result-name">{{race.name}}</div>
+                        <div class="app__result-amount">{{totalGame[k]}}</div>
                     </div>
                 </div>
                 <div class="app__body-bottom">
-                    <button class="app__btn btn__back btn__achivment">
+                    <button class="app__btn btn__back btn__achivment" @click="gotoMain">
                         <i aria-hidden="true" class="fa fa-reply"></i>
                     </button>
                 </div>
