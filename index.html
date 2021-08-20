@@ -19,19 +19,19 @@
         <div class="app__body">
             <button class="app__btn" @click="gotoQuestions">
                 <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                <div class="app__btn-text">Начать</div>
+                <div>Начать</div>
             </button>
             <button class="app__btn" @click="gotoAchivments">
                 <i class="fa fa-trophy" aria-hidden="true"></i>
-                <div class="app__btn-text">Достижения</div>
+                <div>Достижения</div>
             </button>
             <button class="app__btn" @click="gotoSocial">
                 <i class="fa fa-user" aria-hidden="true"></i>
-                <div class="app__btn-text">Автор</div>
+                <div>Автор</div>
             </button>
             <button class="app__btn btn__sound">
                 <i class="fa fa-volume-up" aria-hidden="true"></i>
-                <div class="app__btn-text">Звук</div>
+                <div>Звук</div>
             </button>
         </div>
     </div>
@@ -100,48 +100,44 @@
         <div class="app__body">
             <a target="_blank" href="" class="app__btn">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
-                <div class="app__btn-text">Instagram</div>
+                <div>Instagram</div>
             </a>
             <a target="_blank" href="" class="app__btn">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
-                <div class="app__btn-text">Twitter</div>
+                <div>Twitter</div>
             </a>
             <a target="_blank" href="" class="app__btn">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
-                <div class="app__btn-text">Facebook</div>
+                <div>Facebook</div>
             </a>
             <a target="_blank" href="" class="app__btn">
                 <i class="fa fa-vk" aria-hidden="true"></i>
-                <div class="app__btn-text">VK</div>
+                <div>VK</div>
             </a>
             <a target="_blank" href="" class="app__btn">
                 <i class="fa fa-youtube" aria-hidden="true"></i>
-                <div class="app__btn-text">Youtube</div>
+                <div>Youtube</div>
             </a>
             <button class="app__btn btn__back" @click="gotoMain">
                 <i aria-hidden="true" class="fa fa-reply"></i>
             </button>
         </div>
 
-        <div class="app results" data-race="zerg"  v-show="showResult">
+        <div class="app results" :data-race="resultRace" v-show="showResult">
             <div class="app__body">
                 <div class="app__results-inner">
-                    <div class="results__title">Zerg</div>
+                    <div class="results__title">{{ results[resultRace].name }}</div>
                     <div class="results__img">
-                        <img src="img/terran_logo.png" alt="">
+                        <img :src="'img/'+resultRace+'_logo.png'" alt="">
                     </div>
                     <div class="results__text-box">
-                        <p class="results__text">
-                            Если у вас при мытье рук из этих самых рук потечёт кровь
-                            , то, наверное, вы сразу пойдёте к врачу. Если умыться и увидеть кровь на глазах — тоже.
-                            А вот с зубами почему-то все воспринимают кровотечение совершенно спокойно
-                        </p>
-                        <p class="results__quote">Quate</p>
-                        <p class="results__quote">Quate</p>
-                        <p class="results__aithor">Authir</p>
+                        <p class="results__text">{{results[resultRace].description}}</p>
+                        <p class="results__quote">{{results[resultRace].quote1}}</p>
+                        <p class="results__quote">{{results[resultRace].quote2}}</p>
+                        <p class="results__aithor">{{results[resultRace].author}}</p>
                     </div>
                     <div>
-                        <button class="app__btn btn__back btn__zerg">
+                        <button :class="'app__btn btn__back btn__'+resultRace" @click="gotoAchivments">
                             <i aria-hidden="true" class="fa fa-reply"></i>
                         </button>
                     </div>

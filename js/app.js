@@ -25,7 +25,7 @@ let app = new Vue({
                 'hybrid':0,
                 'infested':0,
             },                 // всего сыгранных матчей
-        totalGames: localStorage.getItem('sc2TotalGames') ? ('sc2TotalGames'):0,
+        totalGames: localStorage.getItem('sc2TotalGames') ? localStorage.getItem('sc2TotalGames'):0,
         questions: questions, // ищются в "js/const.js"
         results: results,
         resultRace: 'infested',
@@ -59,10 +59,10 @@ let app = new Vue({
         gotoQuestions() {
             this.score = {
                 'zerg':0,
-                    'terran':0,
-                    'primal':0,
-                    'protoss':0,
-                    'taldarim':0,
+                'terran':0,
+                'primal':0,
+                'protoss':0,
+                'taldarim':0,
             }
             this.showMain = false
             this.showSocial = false
