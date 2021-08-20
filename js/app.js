@@ -75,11 +75,11 @@ let app = new Vue({
             this.showSocial = false
             this.showAchivments = false
             this.showQuestions = false
-            this.showResult = false
+            this.showResult = true
             this.resultRace = race
         },
         nextQuestions (answer) {
-            if(this.number == 24) {
+            if(this.number >= 24) {
                 this.number = 0
                 this.endGame()
             } else {
