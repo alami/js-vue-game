@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="vireport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="theme.css" />
+<!--    <link rel="stylesheet" href="theme.css" />-->
     <title>02-05</title>
 </head>
 <body>
@@ -11,8 +11,13 @@
     <div class="card">
         <h1> {{title}}</h1>
         <div class="from-control">
-            <input type="text" v-bind:placeholder="placeholderString"/>
+            <input type="text"
+                   v-bind:placeholder="placeholderString"
+                   v-bind:value="inputValue"
+                   v-on:input="inputChangeHandler"
+            />
         </div>
+        <h2>inputValue: {{inputValue}}</h2>
         <button class="btn">Добавить</button>
         <hr />
     </div>
