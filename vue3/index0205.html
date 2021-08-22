@@ -21,8 +21,13 @@
         </div>
         <button class="btn" v-on:click="addNewNote">Добавить</button>
         <hr />
-        <ul class="list" v-for="note in notes">
-            <li class="list-item">{{note}}</li>
+        <ul class="list" v-for="(note, idx) in notes">
+            <li class="list-item">
+                {{idx}}. {{note}}
+                <button class="btn danger"
+                        v-on:click="removeNote(idx)"
+                >Удалить</button>
+            </li>
         </ul>
     </div>
 </div>
