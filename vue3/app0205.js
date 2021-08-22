@@ -23,6 +23,12 @@ const App = {
         toUpperCase (item) {
             return item.toUpperCase()
         }
+    },
+    computed : {
+        doubleCountComputed () {
+            console.log("doubleCountComputed")
+            return this.notes.length *2
+        }
     }
 }
 Vue.createApp(App).mount('#app')
