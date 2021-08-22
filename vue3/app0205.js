@@ -9,8 +9,11 @@ const App = {
     },
     methods: {
         inputChangeHandler(event) {
-            // console.log("123 : ",event.target.value)
             this.inputValue = event.target.value
+        },
+        addNewNote() {
+            this.notes.push(this.inputValue)
+            this.inputValue = ''
         }
     }
 }

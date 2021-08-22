@@ -18,7 +18,7 @@
                    v-on:input="inputChangeHandler"
             />
         </div>
-        <button class="btn">Добавить</button>
+        <button class="btn" v-on:click="addNewNote">Добавить</button>
         <hr />
         <ul class="list" v-for="note in notes">
             <li class="list-item">{{note}}</li>
