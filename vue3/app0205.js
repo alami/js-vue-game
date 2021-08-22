@@ -29,6 +29,12 @@ const App = {
             console.log("doubleCountComputed")
             return this.notes.length *2
         }
+    },
+    watch: {
+        inputValue(value) {
+            // console.log('input value changed|', value)
+            if (value.length > 10) this.inputValue = ''
+        }
     }
 }
 Vue.createApp(App).mount('#app')
