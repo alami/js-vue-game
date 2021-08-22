@@ -10,7 +10,10 @@
 <body>
 <div class="contaner" id="app">
     <div class="card">
-        <h1> {{title}}</h1>
+        <h1 :style="{
+            color: inputValue.length<5?'red':'black',
+            fontSize: inputValue.length<5?'2rem':'1.5rem'
+        }"> {{title}}</h1>
         <div class="from-control">
             <input type="text"
                    :placeholder="placeholderString"
