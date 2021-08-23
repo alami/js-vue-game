@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="theme.css" />
+    <title>Vue3 - ch 03 </title>
+    <style>
+        [v-clock] { display: none}
+    </style>
+</head>
+<body>
+<div class="contaner pt-5" id="app" v-cloak>
+    <div class="card center">
+        <h1 v-text="title"></h1>
+        <h1 v-once>{{title}}</h1>
+        <h1 v-pre>{{title}}</h1>
+        <div v-html="myHTML"></div>
+
+        <button class="btn" @click="title='another title'">Change title</button>
+    </div>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="app03.js"></script>
+</body>
+</html>
