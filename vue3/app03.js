@@ -5,8 +5,13 @@ Vue.createApp({
         items: [1,2,3,4,5,6,7]
     }),
     methods: {
+        addItem() {
+            this.items.unshift(this.$refs.myInput.value)
+            this.$refs.myInput.value = ''
+            console.log(this.$refs.myInput.value)
+        },
         stopPropagation(event){
-            event.stopPropagation()
+             event.stopPropagation()
         }
     },
     computed : {

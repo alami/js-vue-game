@@ -12,11 +12,14 @@
 <body>
 <div class="contaner pt-5" id="app" v-cloak>
     <div class="card center">
+        <div class="form-control">
+            <input type="text" @keyup.enter="addItem" ref="myInput">
+        </div>
         <ul class="list" v-if="items.length">
 <!--            <li class="list-item" v-for="(item,idx) in 7">{{idx}}.{{item}}</li>     -->
 <!--            <li class="list-item" v-for="(value,idx) in person">{{idx}}: {{value}}</li>-->
             <li class="list-item"
-                v-for="(item,idx) in evenItems"
+                v-for="(item,idx) in items"
                 @click="items.splice(idx,1)"
                 :key="item"
                 >{{item}}&nbsp;
