@@ -16,9 +16,13 @@
 <!--            <li class="list-item" v-for="(item,idx) in 7">{{idx}}.{{item}}</li>     -->
 <!--            <li class="list-item" v-for="(value,idx) in person">{{idx}}: {{value}}</li>-->
             <li class="list-item"
-                v-for="(value,idx) in items"
+                v-for="(item,idx) in items"
                 @click="items.splice(idx,1)"
-            >{{value}}</li>
+                :key="item"
+                >{{item}}&nbsp;
+<!--                <input type="text" @click="stopPropagation">-->
+                <input type="text" @click.stop>
+            </li>
         </ul>
         <div v-else> No data </div>
         <div v-show="items.length ===0"> No data </div>
