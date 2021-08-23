@@ -8,5 +8,10 @@ Vue.createApp({
         stopPropagation(event){
             event.stopPropagation()
         }
+    },
+    computed : {
+        evenItems() {
+            return this.items.filter(i=>i%2===0)
+        }
     }
 }).mount('#app')

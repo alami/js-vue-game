@@ -16,7 +16,7 @@
 <!--            <li class="list-item" v-for="(item,idx) in 7">{{idx}}.{{item}}</li>     -->
 <!--            <li class="list-item" v-for="(value,idx) in person">{{idx}}: {{value}}</li>-->
             <li class="list-item"
-                v-for="(item,idx) in items"
+                v-for="(item,idx) in evenItems"
                 @click="items.splice(idx,1)"
                 :key="item"
                 >{{item}}&nbsp;
