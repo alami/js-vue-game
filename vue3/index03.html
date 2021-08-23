@@ -12,12 +12,16 @@
 <body>
 <div class="contaner pt-5" id="app" v-cloak>
     <div class="card center">
-        <h1 v-text="title"></h1>
-        <h1 v-once>{{title}}</h1>
-        <h1 v-pre>{{title}}</h1>
-        <div v-html="myHTML"></div>
-
-        <button class="btn" @click="title='another title'">Change title</button>
+        <ul class="list" v-if="items.length">
+<!--            <li class="list-item" v-for="(item,idx) in 7">{{idx}}.{{item}}</li>     -->
+<!--            <li class="list-item" v-for="(value,idx) in person">{{idx}}: {{value}}</li>-->
+            <li class="list-item"
+                v-for="(value,idx) in items"
+                @click="items.splice(idx,1)"
+            >{{value}}</li>
+        </ul>
+        <div v-else> No data </div>
+        <div v-show="items.length ===0"> No data </div>
     </div>
 </div>
 <script src="https://unpkg.com/vue@next"></script>
