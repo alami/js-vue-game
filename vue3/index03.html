@@ -16,14 +16,11 @@
             <input type="text" @keyup.enter="addItem" ref="myInput">
         </div>
         <ul class="list" v-if="items.length">
-<!--            <li class="list-item" v-for="(item,idx) in 7">{{idx}}.{{item}}</li>     -->
-<!--            <li class="list-item" v-for="(value,idx) in person">{{idx}}: {{value}}</li>-->
             <li class="list-item"
                 v-for="(item,idx) in items"
-                @click="items.splice(idx,1)"
+                @click="remove(idx), log(item)"
                 :key="item"
                 >{{item}}&nbsp;
-<!--                <input type="text" @click="stopPropagation">-->
                 <input type="text" @click.stop>
             </li>
         </ul>

@@ -10,6 +10,12 @@ Vue.createApp({
             this.$refs.myInput.value = ''
             console.log(this.$refs.myInput.value)
         },
+        remove (idx) {
+            this.items.splice(idx,1)
+        },
+        log(item) {
+            console.log(item)
+        },
         stopPropagation(event){
              event.stopPropagation()
         }
