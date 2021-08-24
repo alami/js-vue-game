@@ -1,3 +1,10 @@
+Vue.createApp({
+    data() {
+        return {
+            title: 'React'
+        }
+    }
+}).mount('#app2')
 const h = Vue.h
 const app= Vue.createApp({
     data() {
