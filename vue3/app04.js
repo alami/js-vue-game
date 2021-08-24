@@ -17,9 +17,36 @@ const app= Vue.createApp({
         }, [h('h1',{},this.title),
             h('button',{class: 'btn', onClick: this.changeTitle }, 'Изменить')
         ])
-    }
+    },
+    beforeCreate() {
+        console.log('beforeCreate')
+    },
+    created() {
+        console.log('created')
+    },
+    beforeMount () {
+        console.log('beforeMount')
+    },
+    mounted () {
+        console.log('mounted')
+    },
+    beforeUnmount () {
+        console.log('beforeUnmount')
+    },
+    unmounted () {
+        console.log('unmounted')
+    },
+    beforeUpdate () {
+        console.log('beforeMount')
+    },
+    updated () {
+        console.log('mounted')
+    },
 })
 app.mount('#app')
+setTimeout(()=>{
+    app.unmount()
+}, 2000)
 
 let data = {
     title: "Vue 3",
@@ -38,6 +65,5 @@ const proxy = new Proxy(data, { //handler
         console.log(value)
     }
 })
-proxy.message
-proxy.title = "Angular 10"
+// proxy.title = "Angular 10"
 
