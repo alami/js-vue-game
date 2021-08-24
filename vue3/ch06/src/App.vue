@@ -2,10 +2,9 @@
   <div class="container pt-1">
     <div class="card">
       <h2>Актуальные новости {{now}}</h2>
-      <app-news></app-news>
-      <app-news></app-news>
-      <app-news></app-news>
-      <AppNews />
+      <app-news title="This is title N-1"></app-news>
+      <app-news title="This is title N-2"></app-news>
+      <app-news title="This is title N-3"></app-news>
     </div>
   </div>
 </template>
@@ -17,7 +16,6 @@ export default {
   data  (){
     return {
       now: new Date().toLocaleDateString(),
-      isOpen: false,
       news: [
           'Джо победил на выборах',
           'Вью 3 работате успешно',
@@ -25,9 +23,7 @@ export default {
     }
   },
   components: {
-    // 'app-news': AppNews,
-    //'AppNews': AppNews,
-    AppNews,
+    'app-news': AppNews,
   }
 }
 </script>
