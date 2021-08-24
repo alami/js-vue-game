@@ -2,16 +2,16 @@
   <div class="container pt-1">
     <div class="card">
       <h2>Актуальные новости {{now}}</h2>
-    </div>
-    <div class="card" v-for="item in news" :key="item">
-      <h3>{{item}}</h3>
-      <button class="btn" @click="isOpen=!isOpen">Open</button>
-      <p v-if="isOpen">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
+      <app-news></app-news>
+      <app-news></app-news>
+      <app-news></app-news>
     </div>
   </div>
 </template>
 
 <script>
+import  AppNews from './AppNews'
+
 export default {
   data  (){
     return {
@@ -20,9 +20,11 @@ export default {
       news: [
           'Джо победил на выборах',
           'Вью 3 работате успешно',
-
       ],
     }
+  },
+  components: {
+    'app-news': AppNews,
   }
 }
 </script>
