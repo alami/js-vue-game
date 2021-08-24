@@ -5,6 +5,7 @@
       <app-news></app-news>
       <app-news></app-news>
       <app-news></app-news>
+      <AppNews />
     </div>
   </div>
 </template>
@@ -24,7 +25,9 @@ export default {
     }
   },
   components: {
-    'app-news': AppNews,
+    // 'app-news': AppNews,
+    //'AppNews': AppNews,
+    AppNews,
   }
 }
 </script>
