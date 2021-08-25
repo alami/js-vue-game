@@ -9,6 +9,7 @@
         :title="item.title"
         :id="item.id"
         :is-open="item.isOpen"
+        :was-read="item.wasRead"
         @open-news="openNews"
         @read-news="readNews"
     ></app-news>
@@ -25,8 +26,8 @@ export default {
       openRate: 0,
       readRate: 0,
       news: [
-        {title: 'Джо победил на выборах', id: 2},
-        {title: 'Вью 3 работате успешно', id: 2},
+        {title: 'Джо победил на выборах', id: 1, isOpen: false, wasRead:false},
+        {title: 'Вью 3 работате успешно', id: 2, isOpen: false, wasRead:false},
       ],
     }
   },
@@ -34,7 +35,9 @@ export default {
     openNews() {
       this.openRate++
     },
-    readNews () {
+    readNews (id) {
+      const idx = this.news.findIndex(news => news.id === id)
+      this.news[idx].wasRead = true
       this.readRate++
     }
   },

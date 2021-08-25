@@ -5,7 +5,7 @@
     <div v-if="isNewsOpen">
       <hr />
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
-      <button class="btn primary" @click="mark">Read news</button>
+      <button v-if="!wasRead" class="btn primary" @click="mark">Read news</button>
     </div>
   </div>
 </template>
@@ -16,11 +16,18 @@ export default {
       {
         title: String,
         id: Number,
-        isOpen: Boolean
+        isOpen: Boolean,
+        wasRead: Boolean
       },
   emits: {
     'open-news': null,
-    'read-news': null,
+    'read-news'(id) {
+      if (id) {
+        return true
+      }
+      console.warn('Empty "id" parameter for emit("read-news")')
+      return false
+    },
   },
   data() {
     return {
@@ -36,7 +43,7 @@ export default {
     },
     mark(){
       this.isNewsOpen=false
-      this.$emit('read-news')
+      this.$emit('read-news', this.id)
     }
   }
 }
