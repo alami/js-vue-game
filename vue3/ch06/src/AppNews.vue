@@ -2,7 +2,11 @@
   <div class="card">
     <h3>{{title}}</h3>
     <button class="btn" @click="open">{{isNewsOpen?'Close':'Open'}}</button>
-    <p v-if="isNewsOpen">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
+    <div v-if="isNewsOpen">
+      <hr />
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
+      <button class="btn primary" @click="mark">Read news</button>
+    </div>
   </div>
 </template>
 
@@ -10,33 +14,13 @@
 export default {
   props: //['title',],
       {
-        title: {
-          type: String,
-          required: true,
-        },
-        id: {
-          type: Number,
-          required: true,
-        },
-        isOpen: {
-          type: Boolean,
-          required: false,
-          default: true,
-          validator(value) {
-            console.log(value)
-            return true
-          }
-        }
+        title: String,
+        id: Number,
+        isOpen: Boolean
       },
   emits: {
-    'open-news'(num, num2) {
-      if (num && num2)
-        return true
-      else {
-        console.log('No data in open-news emit')
-        return false
-      }
-    }
+    'open-news': null,
+    'read-news': null,
   },
   data() {
     return {
@@ -47,8 +31,12 @@ export default {
     open() {
       this.isNewsOpen=!this.isNewsOpen
       if (this.isNewsOpen) {
-        this.$emit('open-news',42,3)
+        this.$emit('open-news')
       }
+    },
+    mark(){
+      this.isNewsOpen=false
+      this.$emit('read-news')
     }
   }
 }

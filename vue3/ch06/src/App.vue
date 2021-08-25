@@ -2,7 +2,7 @@
   <div class="container pt-1">
     <div class="card">
       <h2>Актуальные новости {{ now }}</h2>
-      <span>Открыто: {{ openRate }}</span>
+      <span>Открыто: {{ openRate }} | Прочитано: {{ readRate }}</span>
     </div>
     <app-news
         v-for="item in news" :key="item.id"
@@ -10,6 +10,7 @@
         :id="item.id"
         :is-open="item.isOpen"
         @open-news="openNews"
+        @read-news="readNews"
     ></app-news>
   </div>
 </template>
@@ -22,6 +23,7 @@ export default {
     return {
       now: new Date().toLocaleDateString(),
       openRate: 0,
+      readRate: 0,
       news: [
         {title: 'Джо победил на выборах', id: 2},
         {title: 'Вью 3 работате успешно', id: 2},
@@ -29,9 +31,11 @@ export default {
     }
   },
   methods: {
-    openNews(data,dat2) {
+    openNews() {
       this.openRate++
-      console.log(data, dat2)
+    },
+    readNews () {
+      this.readRate++
     }
   },
   components: {
