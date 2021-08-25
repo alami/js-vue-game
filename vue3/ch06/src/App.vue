@@ -12,6 +12,7 @@
         :was-read="item.wasRead"
         @open-news="openNews"
         @read-news="readNews"
+        @unmark="unreadNews"
     ></app-news>
   </div>
 </template>
@@ -39,7 +40,12 @@ export default {
       const idx = this.news.findIndex(news => news.id === id)
       this.news[idx].wasRead = true
       this.readRate++
-    }
+    },
+    unreadNews (id) {
+      const news = this.news.find(news => news.id === id)
+      news.wasRead = false
+      this.readRate--
+    },
   },
   components: {
     'app-news': AppNews,

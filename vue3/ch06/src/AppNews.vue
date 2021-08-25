@@ -2,6 +2,8 @@
   <div class="card">
     <h3>{{title}}</h3>
     <button class="btn" @click="open">{{isNewsOpen?'Close':'Open'}}</button>
+    <button class="btn danger" v-if="wasRead" @click="$emit('unmark', id)">
+      Отметить непрочитанной</button>
     <div v-if="isNewsOpen">
       <hr />
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
@@ -28,6 +30,7 @@ export default {
       console.warn('Empty "id" parameter for emit("read-news")')
       return false
     },
+    unmark: null,
   },
   data() {
     return {
@@ -44,7 +47,10 @@ export default {
     mark(){
       this.isNewsOpen=false
       this.$emit('read-news', this.id)
-    }
+    },
+    /*unmark () {
+      this.$emit('unmark', this.id)
+    },*/
   }
 }
 </script>
