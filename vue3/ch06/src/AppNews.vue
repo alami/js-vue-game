@@ -8,11 +8,16 @@
 
 <script>
 export default {
-  props: ['title',],
+  props: //['title',],
+      {
+        title: String,
+        id: Number,
+        isOpen: Boolean
+      },
   data() {
     return {
-      item: 'Item string',
-      isOpen: false
+      // item: 'Item string',
+      // isOpen: false
     }
   }
 }
