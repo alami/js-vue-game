@@ -1,12 +1,12 @@
 <template>
   <div class="card">
     <h3>{{title}}</h3>
-    <app-button @action="open" :text="isNewsOpen?'Close':'Open'"></app-button>
-    <app-button color="danger" text="Отметить непрочитанной" v-if="wasRead" @action="$emit('unmark', id)"></app-button>
+    <app-button @action="open">{{isNewsOpen?'Close':'Open'}}</app-button>
+    <app-button color="danger" v-if="wasRead" @action="$emit('unmark', id)">Отметить непрочитанной</app-button>
     <div v-if="isNewsOpen">
       <hr />
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
-      <app-button v-if="!wasRead" color="primary" @action="mark" text="Read news"></app-button>
+      <app-button v-if="!wasRead" color="primary" @action="mark">Read news</app-button>
     </div>
   </div>
 </template>
@@ -48,9 +48,6 @@ export default {
       this.isNewsOpen=false
       this.$emit('read-news', this.id)
     },
-    /*unmark () {
-      this.$emit('unmark', this.id)
-    },*/
   },
   components: {AppButton}
 }
