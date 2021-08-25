@@ -7,15 +7,18 @@
       <hr />
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
       <app-button v-if="!wasRead" color="primary" @action="mark">Read news</app-button>
+
+      <app-news-list :news="news"></app-news-list>
     </div>
   </div>
 </template>
 
 <script>
 import AppButton from './AppButton'
+import AppNewsList from './AppNewsList'
 export default {
-  props: //['title',],
-      {
+  props: {
+        news: Array,
         title: String,
         id: Number,
         isOpen: Boolean,
@@ -49,7 +52,7 @@ export default {
       this.$emit('read-news', this.id)
     },
   },
-  components: {AppButton}
+  components: {AppButton, AppNewsList}
 }
 </script>
 
