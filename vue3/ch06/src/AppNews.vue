@@ -1,13 +1,12 @@
 <template>
   <div class="card">
     <h3>{{title}}</h3>
-    <app-button class="btn" @action="open" :text="isNewsOpen?'Close':'Open'"></app-button>
-    <button class="btn danger" v-if="wasRead" @click="$emit('unmark', id)">
-      Отметить непрочитанной</button>
+    <app-button @action="open" :text="isNewsOpen?'Close':'Open'"></app-button>
+    <app-button color="danger" text="Отметить непрочитанной" v-if="wasRead" @action="$emit('unmark', id)"></app-button>
     <div v-if="isNewsOpen">
       <hr />
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
-      <button v-if="!wasRead" class="btn primary" @click="mark">Read news</button>
+      <app-button v-if="!wasRead" color="primary" @action="mark" text="Read news"></app-button>
     </div>
   </div>
 </template>
