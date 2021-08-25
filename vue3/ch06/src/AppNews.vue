@@ -8,7 +8,7 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
       <app-button v-if="!wasRead" color="primary" @action="mark">Read news</app-button>
 
-      <app-news-list :news="news"></app-news-list>
+      <app-news-list></app-news-list>
     </div>
   </div>
 </template>
@@ -18,7 +18,6 @@ import AppButton from './AppButton'
 import AppNewsList from './AppNewsList'
 export default {
   props: {
-        news: Array,
         title: String,
         id: Number,
         isOpen: Boolean,

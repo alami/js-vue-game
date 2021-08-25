@@ -33,6 +33,9 @@ export default {
       ],
     }
   },
+  provide: {
+    title:'List of all news'
+  },
   methods: {
     openNews() {
       this.openRate++

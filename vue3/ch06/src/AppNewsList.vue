@@ -1,5 +1,6 @@
 <template>
   <hr />
+  <h4>{{title}}</h4>
   <ul>
     <li v-for="item in news">{{item.title}}</li>
   </ul>
@@ -8,6 +9,7 @@
 <script>
 export default {
   props: ['news'],
+  inject: ['title'],
 }
 </script>
 
