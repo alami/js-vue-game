@@ -8,8 +8,7 @@
 
 <script>
 export default {
-  props: ['news'],
-  inject: ['title'],
+  inject: ['title', 'news'],
 }
 </script>
 

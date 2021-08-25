@@ -33,8 +33,11 @@ export default {
       ],
     }
   },
-  provide: {
-    title:'List of all news'
+  provide() {
+    return {
+      title:'List of all news',
+      news: this.news,
+    }
   },
   methods: {
     openNews() {
