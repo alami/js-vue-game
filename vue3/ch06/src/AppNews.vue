@@ -10,9 +10,23 @@
 export default {
   props: //['title',],
       {
-        title: String,
-        id: Number,
-        isOpen: Boolean
+        title: {
+          type: String,
+          required: true,
+        },
+        id: {
+          type: Number,
+          required: true,
+        },
+        isOpen: {
+          type: Boolean,
+          required: false,
+          default: true,
+          validator(value) {
+            console.log(value)
+            return true
+          }
+        }
       },
   data() {
     return {

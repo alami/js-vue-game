@@ -20,8 +20,8 @@ export default {
     return {
       now: new Date().toLocaleDateString(),
       news: [
-        {title: 'Джо победил на выборах', id: 2, isOpen: false},
-        {title: 'Вью 3 работате успешно', id: 2, isOpen: false},
+        {title: 'Джо победил на выборах', id: 2},
+        {title: 'Вью 3 работате успешно', id: 2},
       ],
     }
   },
