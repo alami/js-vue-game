@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <h3>{{title}}</h3>
-    <button class="btn" @click="open">Open</button>
+    <button class="btn" @click="open">{{isNewsOpen?'Close':'Open'}}</button>
     <p v-if="isNewsOpen">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, odit.</p>
   </div>
 </template>
@@ -38,6 +38,9 @@ export default {
   methods: {
     open() {
       this.isNewsOpen=!this.isNewsOpen
+      if (this.isNewsOpen) {
+        this.$emit('open-news',42,3)
+      }
     }
   }
 }

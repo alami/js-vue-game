@@ -9,6 +9,7 @@
         :title="item.title"
         :id="item.id"
         :is-open="item.isOpen"
+        @open-news="openNews"
     ></app-news>
   </div>
 </template>
@@ -25,6 +26,12 @@ export default {
         {title: 'Джо победил на выборах', id: 2},
         {title: 'Вью 3 работате успешно', id: 2},
       ],
+    }
+  },
+  methods: {
+    openNews(data,dat2) {
+      this.openRate++
+      console.log(data, dat2)
     }
   },
   components: {
