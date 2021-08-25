@@ -28,11 +28,19 @@ export default {
           }
         }
       },
+  emits: {
+    'open-news'(num, num2) {
+      if (num && num2)
+        return true
+      else {
+        console.log('No data in open-news emit')
+        return false
+      }
+    }
+  },
   data() {
     return {
       isNewsOpen: this.isOpen
-      // item: 'Item string',
-      // isOpen: false
     }
   },
   methods: {
