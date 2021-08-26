@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <h3>{{title}}</h3>
+    <h2>{{title}}</h2>
     <app-button @action="open">{{isNewsOpen?'Close':'Open'}}</app-button>
     <app-button color="danger" v-if="wasRead" @action="$emit('unmark', id)">Отметить непрочитанной</app-button>
     <div v-if="isNewsOpen">
