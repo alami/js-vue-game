@@ -1,33 +1,29 @@
 <template>
   <div class="container pt-1">
     <div class="card">
-      <h2>Slots</h2>
+      <h2>Динамические и Асинхронные компоненты</h2>
+      <app-button
+          :color="active==='one'?'primary':''"
+          @action="active='one'"
+      >One</app-button>
+      <app-button
+          :color="active==='two'?'primary':''"
+          @action="active='two'"
+      >Two</app-button>
     </div>
-    <app-list>
-      <template #default="{idx, iter}">
-        <span style="color: #c25205;">
-          <strong>{{idx}}</strong>.
-          {{iter}}
-        </span>
-      </template>
-    </app-list>
-  <app-block>
-    <p>Это самый важный текст для нового блока</p>
-    <template v-slot:header>
-      <h3>Это заголовок</h3>
-    </template>
-    <template v-slot:footer>
-      <p>Это Footer</p>
-    </template>
-  </app-block>
   </div>
 </template>
 
 <script>
-import AppBlock from './AppBlock'
-import AppList from './AppList'
+import AppButton from "./AppButton"
+
 export default {
-components: {AppBlock, AppList}
+  data() {
+    return {
+      active: 'one' //two
+    }
+  },
+ components: {AppButton},
 }
 </script>
 
