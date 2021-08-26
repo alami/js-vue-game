@@ -5,7 +5,10 @@
     </div>
     <app-list>
       <template #default="slotProps">
-        <span style="color: #c25205;">{{slotProps.iter}}</span>
+        <span style="color: #c25205;">
+          <strong>{{slotProps.idx}}</strong>.
+          {{slotProps.iter}}
+        </span>
       </template>
     </app-list>
   <app-block>
