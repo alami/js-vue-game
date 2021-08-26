@@ -3,6 +3,7 @@
     <div class="card">
       <h2>Динамические и Асинхронные компоненты</h2>
       <app-button
+          ref="myBtn"
           :color="oneColor"
           @action="active='one'"
       >One</app-button>
@@ -29,7 +30,9 @@ export default {
     }
   },
   mounted() {
-    setTimeout(()=> {this.componentName = 'New Comp Name'},1500)
+    // setTimeout(()=> {this.componentName = 'New Comp Name'},1500)
+    console.log(this.$refs.myBtn)
+    this.$refs.myBtn.btnLog()
   },
   computed: {
     /*componentName() {
