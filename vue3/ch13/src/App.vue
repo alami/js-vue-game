@@ -4,10 +4,10 @@
       <h2>Slots</h2>
     </div>
     <app-list>
-      <template #default="slotProps">
+      <template #default="{idx, iter}">
         <span style="color: #c25205;">
-          <strong>{{slotProps.idx}}</strong>.
-          {{slotProps.iter}}
+          <strong>{{idx}}</strong>.
+          {{iter}}
         </span>
       </template>
     </app-list>
