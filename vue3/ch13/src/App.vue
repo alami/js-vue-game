@@ -11,11 +11,15 @@
           @action="active='two'"
       >Two</app-button>
     </div>
+    <app-text-one v-if="active==='one'"></app-text-one>
+    <app-text-two v-else></app-text-two>
   </div>
 </template>
 
 <script>
 import AppButton from "./AppButton"
+import AppTextOne from "./AppTextOne"
+import AppTextTwo from "./AppTextTwo"
 
 export default {
   data() {
@@ -23,7 +27,7 @@ export default {
       active: 'one' //two
     }
   },
- components: {AppButton},
+ components: {AppButton,AppTextOne,AppTextTwo},
 }
 </script>
 
