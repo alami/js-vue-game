@@ -3,6 +3,11 @@
     <div class="card">
       <h2>Slots</h2>
     </div>
+    <app-list>
+      <template #default="slotProps">
+        <span style="color: #c25205;">{{slotProps.iter}}</span>
+      </template>
+    </app-list>
   <app-block>
     <p>Это самый важный текст для нового блока</p>
     <template v-slot:header>
@@ -17,8 +22,9 @@
 
 <script>
 import AppBlock from './AppBlock'
+import AppList from './AppList'
 export default {
-components: {AppBlock}
+components: {AppBlock, AppList}
 }
 </script>
 
