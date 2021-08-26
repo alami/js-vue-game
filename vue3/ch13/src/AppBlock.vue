@@ -1,12 +1,19 @@
 <template>
 <div class="card">
-  <h3>title</h3>
+  <slot name="header">No text</slot>
+  <slot>No text</slot>
+  <div v-if="$slots.footer">
+    <hr />
+    <slot name="footer">No text</slot>
+  </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: "AppBlock"
+  mounted() {
+    console.log(this.$slots)
+  }
 }
 </script>
 
