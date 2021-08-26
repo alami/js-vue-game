@@ -28,11 +28,16 @@ export default {
       active: 'one' //two
     }
   },
+  mounted() {
+    setTimeout(()=> {this.componentName = 'New Comp Name'},1500)
+  },
   computed: {
-    componentName() {
-      /*if (this.active === 'one') return 'app-text-one'
-            return 'app-text-two'*/
+    /*componentName() {
       return 'app-text-'+this.active
+    },*/
+    componentName: {
+      get() {return 'app-text-'+this.active},
+      set(value) { console.log('componentName', value)},
     },
     oneColor () { return this.active==='one'?'primary':''},
     twoColor () { return this.active==='two'?'primary':''},
