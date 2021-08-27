@@ -2,11 +2,12 @@
   <div class="container">
     <form class="card" @submit.prevent="submitHandler">
       <h1>Анкета на Vue разработчика!</h1>
-      <div class="form-control">
+      <div class="form-control" :class="{invalid: errors.name}">
         <label for="name">Как тебя зовут?</label>
         <input type="text" id="name" placeholder="Введи имя"
                v-model.trim="name">
 <!--               ref="nameInput"-->
+        <small v-if="errors.name">{{errors.name}}</small>
       </div>
 
       <div class="form-control">
@@ -30,7 +31,7 @@
           <label><input type="radio" name="trip" v-model="relocate" value="yes"/> Да</label>
         </div>
 
-        <div class="checkbox">
+           <div class="checkbox">
           <label><input type="radio" name="trip" v-model="relocate" value="no"/> Нет</label>
         </div>
       </div>
@@ -68,26 +69,42 @@ export default {
      city: 'nsk',
      relocate: null,
      skills: [],
-     agree: false
+     agree: false,
+     errors: {
+       name:null,
+     }
    }
  },
  methods: {
+   formIsValid() {
+     let isValid=true
+     if (this.name.length===0) {
+       this.errors.name = 'Введите непустое имя'
+       isValid=false
+     } else {
+       this.errors.name = null
+     }
+     return isValid
+   },
    submitHandler(){
-     console.group('Form Data')
-     console.log('Name',this.name)
-     console.log('Age',this.age)
-     console.log('City',this.city)
-     console.log('To Tokio',this.relocate)
-     console.log('Skills',this.skills)
-     console.log('Rules agree',this.agree)
-     console.groupEnd()
-     // console.log('Age',typeof this.age)
-     // console.log('Name',this.$refs.nameInput.value)
+     if (this.formIsValid()) {
+       console.group('Form Data')
+       console.log('Name', this.name)
+       console.log('Age', this.age)
+       console.log('City', this.city)
+       console.log('To Tokio', this.relocate)
+       console.log('Skills', this.skills)
+       console.log('Rules agree', this.agree)
+       console.groupEnd()
+       // console.log('Age',typeof this.age)
+       // console.log('Name',this.$refs.nameInput.value)
+     }
    }
  }
 }
 </script>
 
 <style>
-
+.form-control small {color: #e53935}
+.form-control.invalid input {border-color: #e53935}
 </style>
