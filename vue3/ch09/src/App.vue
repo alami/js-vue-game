@@ -19,16 +19,6 @@
 import AppAlert from './components/AppAlert'
 import AppBlock from './components/AppBlock'
 export default {
-  data(){
-    return {
-      alert: false
-    }
-  },
-  methods: {
-    toggleAlert() {
-      this.alert = !this.alert
-    },
-  },
   components: {AppAlert, AppBlock},
 }
 </script>
