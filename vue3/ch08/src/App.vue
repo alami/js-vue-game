@@ -63,10 +63,10 @@ await fetch(this.urlfb+'people.json', {
       })
       this.name = ''
     },
-    async loadPeople () {
-      try {
-        this.loading = true
+    loadPeople () {
+      this.loading = true
 setTimeout(async ()=>{
+      try {
         const {data} =
             await axios.get(this.urlfb+'people.json')
         if (!data) {
@@ -81,7 +81,6 @@ setTimeout(async ()=>{
         })
         this.people = res   // console.log(res)
         this.loading = false
-},1500)
       } catch (e) {
         this.alert = {//console.log(e.message)
           type: 'danger',
@@ -90,6 +89,7 @@ setTimeout(async ()=>{
         }
         this.loading = false
       }
+},1500)
     },
     async removePerson (id) {
       try {
