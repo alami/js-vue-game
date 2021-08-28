@@ -14,7 +14,10 @@
 
 <script>
 import AppAlert from './AppAlert'
+import alertMixin from "../AlertMixin";
+
 export default {
+  mixins: [alertMixin],
   components: {AppAlert},
 }
 </script>

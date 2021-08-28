@@ -18,7 +18,10 @@
 <script>
 import AppAlert from './components/AppAlert'
 import AppBlock from './components/AppBlock'
+import alertMixin from './AlertMixin'
+
 export default {
+  mixins: [alertMixin],
   components: {AppAlert, AppBlock},
 }
 </script>
