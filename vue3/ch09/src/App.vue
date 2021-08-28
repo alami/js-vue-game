@@ -9,7 +9,7 @@
         @close="alert=false"
     ></app-alert>
     <div class="card">
-      <button class="btn primary" @click="alert=true">показать сообщение</button>
+      <button class="btn primary" @click="toggleAlert">{{alert?'Скрыть':'Показать'}} сообщение</button>
     </div>
   </div>
 </template>
@@ -21,6 +21,11 @@ export default {
     return {
       alert: false
     }
+  },
+  methods: {
+    toggleAlert() {
+      this.alert = !this.alert
+    },
   },
   components: {AppAlert},
 }
