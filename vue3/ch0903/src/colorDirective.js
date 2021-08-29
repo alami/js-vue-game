@@ -1,6 +1,10 @@
 let interval
+let defaultcolor
+const mouseover = event => { event.target.style.color = 'red'}
+const mouseout = event => { event.target.style.color = defaultcolor}
 export default {
     mounted(el, binding) {
+        defaultcolor = binding.value
         el.style[binding.arg] = binding.value
         if (binding.modifiers.blink) {
             let flag = true
@@ -9,14 +13,20 @@ export default {
                 flag = !flag
             }, 1000)
         }
-    },
+        if (binding.modifiers.hover) {
+            el.addEventListener('mouseover',mouseover)
+            el.addEventListener('mouseout',mouseout)
+            }
+        },
     updated(el, binding) {
         el.style[binding.arg] = binding.value
     },
-    unmounted() {
+    unmounted(el) {
         console.log('unmounted')
         if (interval) {
             clearInterval(interval)
         }
+        el.removeEventListener('mouseover',mouseover)
+        el.removeEventListener('mouseout',mouseout)
     },
 }
