@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card">
+    <div class="card" v-if="show">
       <h2 v-color:[type].blink="mycolor">Ди⁠рективы</h2>
       <div class="form-control">
         <label for="inp">Активный по умолчанию</label><br>
@@ -22,7 +22,13 @@ export default {
     return {
       mycolor: 'darkred',
       type: 'color',
+      show: true,
     }
+  },
+  mounted() {
+    setTimeout(()=>{
+      this.show = false
+    },5000)
   },
   directives: {
     focus: focusDirective,
