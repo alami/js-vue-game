@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="card">
-      <h2 v-color="mycolor">Ди⁠рективы</h2>
+      <h2 v-color:background-color="mycolor">Ди⁠рективы</h2>
       <div class="form-control">
         <label for="inp">Активный по умолчанию</label><br>
         <input type="text" id="inp" v-focus>
