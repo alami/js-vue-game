@@ -12,7 +12,13 @@
 
 <script>
 export default {
-
+  directives: {
+    focus: {
+      mounted(el) {
+        el.focus()
+      }
+    }
+  }
 }
 </script>
 
