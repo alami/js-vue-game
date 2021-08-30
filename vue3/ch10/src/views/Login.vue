@@ -32,10 +32,11 @@ export default {
       return this.email !== '' && this.password !== ''
     }
   },
+  inject: ['login', 'logout'],
   methods: {
     submit() {
       if (this.isValid) {
-        // login
+        this.login()
       }
     }
   }
