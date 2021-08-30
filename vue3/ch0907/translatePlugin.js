@@ -3,6 +3,10 @@ export default {
         app.config.globalProperties.$alert = text => {
             window.alert(text)
         }
-
+        app.config.globalProperties.$i18n = key => {
+            return key.split('.').reduce((words,k)=>{
+                return words[k] || '=== UNKNOWN ==='
+            }, options)
+        }
     }
 }
