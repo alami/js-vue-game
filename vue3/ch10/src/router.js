@@ -6,12 +6,18 @@ import Mail from './views/Mail'
 import AppEmailBody from "./components/AppEmailBody";
 import NotFound from "./views/NotFound";
 
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes: [
         {path: '/login',component:Login, alias: '/'},
-        {path: '/forget',component:Forget},
-        {path: '/dashboard',component:Dashboard},
+        {path: '/forget',component:Forget, meta:{cantEnter:true,}},
+        {
+            path: '/dashboard',
+            component:Dashboard,
+            name:'home',
+            beforeEnter() {
+                console.log('beforeEnter')}
+        },
         {path: '/mail/',component:Mail, children: [
                 { path: ':mailId?', component: AppEmailBody, props: true }
             ] },
@@ -21,3 +27,17 @@ export default createRouter({
     linkActiveClass: 'active',
     linkExactActiveClass: 'active',
 })
+
+router.beforeEach((to,from,next)=>{
+    console.log('to: ',to)
+    console.log('from: ',from)
+    if (to.meta.cantEnter) {
+        next({name: 'home'})
+    } else {
+        next()
+    }
+})
+router.afterEach((to,from)=>{
+    console.log('afterEach')
+})
+export default router

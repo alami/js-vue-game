@@ -10,6 +10,12 @@
 
 <script>
 export default {
+  beforeRouteEnter(){
+    console.log('beforeRouteEnter')
+  },
+  beforeRouteLeave(){
+    console.log('beforeRouteLeave')
+  },
 }
 </script>
 
