@@ -13,8 +13,14 @@ export default {
   beforeRouteEnter(){
     console.log('beforeRouteEnter')
   },
-  beforeRouteLeave(){
-    console.log('beforeRouteLeave')
+  beforeRouteLeave(to,from,next){
+    const answer = confirm('Действительно хотите покинуть форму, потеряв набранные данные?')
+    if (answer) {
+      next()
+    }
+    else {
+      next(false)
+    }
   },
 }
 </script>
