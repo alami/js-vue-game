@@ -13,17 +13,17 @@
 </template>
 
 <script>
-import {ref} from 'vue'
+import {ref, reactive} from 'vue'
 export default {
   setup() {
     const name    = ref('VueJS')
     const version = ref('3')
 
-    const framework = ref({name:'VueJS', version: 3})
+    const framework = reactive({name:'VueJS', version: 3})
 
     function changeInfo() {
-      framework.value.name = 'Vue JS!'
-      framework.value.version = 4
+      framework.name = 'Vue JS!'
+      framework.version = 4
     }
 
     return {
