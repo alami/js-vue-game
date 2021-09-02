@@ -14,7 +14,7 @@ import TheNavbar from './TheNavbar'
 export default {
   methods: {
     increment(){
-      this.$store.state.counter++
+      this.$store.commit('increment')
     }
   },
   components: {TheNavbar}
