@@ -2,6 +2,7 @@
   <div class="container">
     <div class="card">
       <h1>Vue Composition Api</h1>
+      <small>data, methods, computed, watch</small>
       <hr>
       <p>Название: <strong>{{ name }}</strong></p>
       <p>Версия: <strong>{{ version }}</strong></p>
@@ -12,8 +13,20 @@
 </template>
 
 <script>
+import {ref} from 'vue'
 export default {
-  data() {
+  setup() {
+    const name    = ref('VueJS')
+    const version = ref('3')
+    function changeInfo() {
+      name.value = 'Vue JS!'
+      version.value = 4
+    }
+    return {
+      name, version, changeInfo
+    }
+  },
+  /*data() {
     return {
       name: 'VueJS',
       version: 3
@@ -24,6 +37,6 @@ export default {
       this.name = 'Vue JS!'
       this.version = 4
     }
-  }
+  }*/
 }
 </script>
