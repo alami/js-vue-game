@@ -12,10 +12,10 @@ export default {
     /*counter() {
       return this.$store.state.counter
     }*/
-    ...mapGetters(['counter'])
+    ...mapGetters('count',['counter'])
   },
   methods: {
-    ...mapMutations(['add']),
+    ...mapMutations('count',['add']),
     addFive() {
       this.add({value:5})
       /*this.$store.commit({
