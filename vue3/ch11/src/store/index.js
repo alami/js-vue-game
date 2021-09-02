@@ -1,5 +1,7 @@
 import { createStore }  from 'vuex'
 import counterModule  from './modules/counters'
+import mutations  from './mutations'
+import actions  from './actions'
 
 export default createStore({
     modules: {
@@ -10,17 +12,8 @@ export default createStore({
             appTitle: 'Vuex working !'
         }
     },
-    mutations: {
-        changeTitle(state,payload) {
-            state.appTitle = payload
-        }
-    },
-    actions: {
-        changeTitle({commit},payload) {
-            commit('changeTitle',payload)
-        }
-    },
-
+    mutations,
+    actions,
     getters: {
         upperCaseTitle(state) {
             return state.appTitle.toUpperCase()
