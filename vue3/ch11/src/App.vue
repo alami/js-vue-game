@@ -3,7 +3,7 @@
   <div class="container with-nav">
     <div class="card">
       <h1>Про Vuex</h1>
-      <h2>Счетчик {{counter}}</h2>
+      <h2>Счетчик {{$store.state.counter}}</h2>
       <button class="btn" @click="increment">++</button>
     </div>
   </div>
@@ -12,14 +12,9 @@
 <script>
 import TheNavbar from './TheNavbar'
 export default {
-  data() {
-    return {
-      counter: 0,
-    }
-  },
   methods: {
     increment(){
-      this.counter++
+      this.$store.state.counter++
     }
   },
   components: {TheNavbar}
