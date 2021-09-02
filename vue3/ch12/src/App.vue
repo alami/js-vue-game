@@ -4,8 +4,8 @@
       <h1>Vue Composition Api</h1>
       <small>data, methods, computed, watch</small>
       <hr>
-      <p>Название: <strong>{{ framework.name }}</strong></p>
-      <p>Версия: <strong>{{ framework.version }}</strong></p>
+      <p>Название: <strong>{{ name }}</strong></p>
+      <p>Версия: <strong>{{ version }}</strong></p>
 
       <button class="btn" @click="changeInfo">Изменить</button>
     </div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {ref, reactive} from 'vue'
+import {ref, reactive, toRefs} from 'vue'
 export default {
   setup() {
     const name    = ref('VueJS')
@@ -27,6 +27,7 @@ export default {
     }
 
     return {
+      ...toRefs(framework),
       framework,
       changeInfo,
     }
