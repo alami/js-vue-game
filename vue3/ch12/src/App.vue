@@ -22,13 +22,13 @@ export default {
     const framework = reactive({name:'VueJS', version: 3})
 
     function changeInfo() {
-      framework.name = 'Vue JS!'
-      framework.version = 4
+      name.value = 'Vue JS!'
+      version.value = 4
     }
 
     return {
-      ...toRefs(framework),
-      framework,
+      name,
+      version,
       changeInfo,
     }
   },
