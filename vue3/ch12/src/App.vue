@@ -5,7 +5,7 @@
       <small>data, methods, computed, watch</small>
       <hr>
       <p>Название: <strong>{{ name }}</strong></p>
-      <p>Версия: <strong>{{ version }}</strong></p>
+      <p>Версия: <strong>{{ version }} ({{doubleVersion}}) </strong></p>
 
       <button class="btn" @click="changeInfo">Изменить</button>
     </div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {ref, reactive, toRefs} from 'vue'
+import {ref, reactive, toRefs, isRef, isReactive, computed, watch } from 'vue'
 export default {
   setup() {
     const name    = ref('VueJS')
@@ -26,10 +26,17 @@ export default {
       version.value = 4
     }
 
+    const doubleVersion = computed(()=>version.value*2)
+
+    watch([name, doubleVersion], (newValue, oldValue)=> {
+      console.log(oldValue, newValue)
+    })
+
     return {
       name,
       version,
       changeInfo,
+      doubleVersion,
     }
   },
 }
