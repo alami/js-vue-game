@@ -3,9 +3,6 @@
     <div class="card">
       <h1>Vue Composition Api</h1>
       <small>data, methods, computed, watch</small>
-      <hr>
-      <p>Название: <strong>{{ name }}</strong></p>
-      <p>Версия: <strong>{{ version }} ({{doubleVersion}}) </strong></p>
 
       <div class="form-control">
         <input type="text" v-model="textInput">
@@ -13,11 +10,14 @@
 
       <button class="btn" @click="changeInfo">Изменить</button>
     </div>
+    <framework-info :name="name" :version="version"/>
   </div>
 </template>
 
 <script>
 import {ref, reactive, toRefs, isRef, isReactive, computed, watch } from 'vue'
+import FrameworkInfo from "./FrameworkInfo";
+
 export default {
   setup() {
     const name    = ref('VueJS')
@@ -32,8 +32,6 @@ export default {
       console.log(textInput.value)
     }
 
-    const doubleVersion = computed(()=>version.value*2)
-
     watch(textInput, (newVal,oldVal)=> {
        console.log(newVal)
     })
@@ -42,9 +40,9 @@ export default {
       name,
       version,
       changeInfo,
-      doubleVersion,
       textInput,
     }
   },
+  components: {FrameworkInfo,},
 }
 </script>
