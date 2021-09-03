@@ -25,16 +25,14 @@
 import {provide, reactive, ref, watch} from "vue";
 import FrameworkInfo from "../FrameworkInfo";
 import AppAlert from "../AppAlert";
+import {useAlert} from "../use/alert";
 
 export default {
   setup() {
     const name    = ref('VueJS')
     const version = ref('3')
     const textInput = ref('')
-    const alert = ref(false)
-
-    const toggle = () => alert.value = !alert.value
-    const close = () => alert.value = false
+    const {alert,toggle,close} = useAlert()
 
     const framework = reactive({name:'VueJS', version: 3})
 
