@@ -32,7 +32,6 @@ export default {
     const name    = ref('VueJS')
     const version = ref('3')
     const textInput = ref('')
-    const {alert,toggle,close} = useAlert()
 
     const framework = reactive({name:'VueJS', version: 3})
 
@@ -56,7 +55,7 @@ export default {
       changeInfo,
       textInput,
       changeVersion,
-      alert, toggle, close,
+      ...useAlert()
     }
   },
   components: {FrameworkInfo, AppAlert},
