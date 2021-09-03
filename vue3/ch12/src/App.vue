@@ -10,7 +10,7 @@
 
       <button class="btn" @click="changeInfo">Изменить</button>
     </div>
-    <framework-info :name="name" :version="version"/>
+    <framework-info :name="name" :version="version" @change-version="changeVersion" />
   </div>
 </template>
 
@@ -36,11 +36,16 @@ export default {
        console.log(newVal)
     })
 
+    function changeVersion(num) {
+      version.value = num
+    }
+
     return {
       name,
       version,
       changeInfo,
       textInput,
+      changeVersion,
     }
   },
   components: {FrameworkInfo,},
