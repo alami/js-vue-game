@@ -8,7 +8,7 @@
       <p>Версия: <strong>{{ version }} ({{doubleVersion}}) </strong></p>
 
       <div class="form-control">
-        <input type="text" ref="textInput">
+        <input type="text" v-model="textInput">
       </div>
 
       <button class="btn" @click="changeInfo">Изменить</button>
@@ -22,20 +22,20 @@ export default {
   setup() {
     const name    = ref('VueJS')
     const version = ref('3')
-    const textInput = ref(null)
+    const textInput = ref('')
 
     const framework = reactive({name:'VueJS', version: 3})
 
     function changeInfo() {
       name.value = 'Vue JS!'
       version.value = 4
-      console.log(textInput.value.value)
+      console.log(textInput.value)
     }
 
     const doubleVersion = computed(()=>version.value*2)
 
-    watch([name, doubleVersion], (newValue, oldValue)=> {
-      // console.log(oldValue, newValue)
+    watch(textInput, (newVal,oldVal)=> {
+       console.log(newVal)
     })
 
     return {
